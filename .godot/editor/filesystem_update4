@@ -1,0 +1,9 @@
+res://default_env.tres
+res://scenes/game.tscn
+res://scenes/player.tscn
+res://scenes/test_platform.tscn
+res://scenes/camera_2d.gd
+res://scripts/camera_2d.gd
+res://scripts/sprite_2d.gd
+res://scenes/static_body_2d.tscn
+res://scenes/oneway_test_platform.tscn

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy540ojoah62g"]
+
+[ext_resource type="PackedScene" uid="uid://cxa56j8itmd1c" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://ctk6dbjxsp10p" path="res://scripts/camera_2d.gd" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://ch71bt7yytidf" path="res://scenes/test_platform.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dewnuxoojwmtn" path="res://scenes/oneway_test_platform.tscn" id="4_lbhrr"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(10, 3)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(10, 0)
+zoom = Vector2(2.5, 2.5)
+script = ExtResource("2_lnu2h")
+
+[node name="testPlatform" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(9.000002, 25)
+scale = Vector2(5, 3)
+
+[node name="oneway_test_platform" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(123, -63)
+scale = Vector2(0.3, 1)
+
+[node name="oneway_test_platform3" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(122.99997, -150)
+scale = Vector2(0.3, 1)
+
+[node name="oneway_test_platform2" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(-128, -103)
+scale = Vector2(0.3, 1)
