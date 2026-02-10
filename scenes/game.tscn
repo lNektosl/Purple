@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://cy540ojoah62g"]
+[gd_scene load_steps=9 format=4 uid="uid://cy540ojoah62g"]
 
 [ext_resource type="PackedScene" uid="uid://cxa56j8itmd1c" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://b4k17pr5prdrk" path="res://scripts/label.gd" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bmuhlqdxl7cg6" path="res://assets/world_tileset.png" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://dwbq6s3l26ecc" path="res://scripts/reset.gd" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("3_lnu2h")
@@ -192,6 +194,9 @@ func _process(delta: float) -> void:
 	position = player.position
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iywne"]
+size = Vector2(2044, 23)
+
 [node name="Game" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-144.0]
 
@@ -205,5 +210,21 @@ zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 script = SubResource("GDScript_yqjtg")
 
+[node name="inputTracker" type="Label" parent="Camera2D"]
+offset_left = -219.0
+offset_top = -124.0
+offset_right = -128.0
+offset_bottom = -101.0
+script = ExtResource("2_lnu2h")
+
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(10, -4)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("4_lbhrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(254, 425)
+shape = SubResource("RectangleShape2D_iywne")
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]

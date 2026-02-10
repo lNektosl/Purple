@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxa56j8itmd1c"]
+[gd_scene load_steps=7 format=3 uid="uid://cxa56j8itmd1c"]
 
 [ext_resource type="Texture2D" uid="uid://d3micxqt7oka" path="res://assets/Gimbo-TestGoblin.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvburo124yl5x" path="res://scripts/playerMovement.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://07aasc5f287w" path="res://scripts/graple_point.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://68o2pdqlvvd1" path="res://scenes/needle.tscn" id="4_dqkch"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
 animations = [{
@@ -28,3 +30,13 @@ animation = &"test"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_dqkch")
+
+[node name="GraplePoint" type="Node2D" parent="."]
+position = Vector2(0, -13)
+script = ExtResource("3_qhqgy")
+
+[node name="Quiver" type="Node2D" parent="GraplePoint"]
+position = Vector2(-22, 1)
+
+[node name="Needle" parent="GraplePoint/Quiver" instance=ExtResource("4_dqkch")]
+scale = Vector2(0.3, 0.3)
