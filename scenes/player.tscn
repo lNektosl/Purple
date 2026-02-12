@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxa56j8itmd1c"]
+[gd_scene format=3 uid="uid://cxa56j8itmd1c"]
 
 [ext_resource type="Texture2D" uid="uid://d3micxqt7oka" path="res://assets/Gimbo-TestGoblin.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvburo124yl5x" path="res://scripts/playerMovement.gd" id="1_g2els"]
@@ -14,17 +14,31 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
-radius = 9.055386
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 7.0
+height = 20.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(18, 31)
+
+[node name="Player" type="CharacterBody2D" unique_id=84213849]
 script = ExtResource("1_g2els")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=514866589]
 position = Vector2(-2, -16)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
 animation = &"test"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="DamageCollider" type="CollisionShape2D" parent="." unique_id=14264210]
 position = Vector2(0, -13)
-shape = SubResource("CircleShape2D_dqkch")
+shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="FloorRayCast" type="RayCast2D" parent="." unique_id=2007337568]
+position = Vector2(0, -13)
+scale = Vector2(0.4, 0.4)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=1916500482]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_g2els")
