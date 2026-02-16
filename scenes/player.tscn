@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxa56j8itmd1c"]
+[gd_scene format=3 uid="uid://cxa56j8itmd1c"]
 
 [ext_resource type="Texture2D" uid="uid://d3micxqt7oka" path="res://assets/Gimbo-TestGoblin.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvburo124yl5x" path="res://scripts/playerMovement.gd" id="1_g2els"]
@@ -44,5 +44,5 @@ collide_with_areas = true
 position = Vector2(0, -15.5)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="GrapplePoint" parent="." instance=ExtResource("3_qhqgy")]
+[node name="GrapplePoint" parent="." unique_id=918514703 instance=ExtResource("3_qhqgy")]
 position = Vector2(0, -13)
