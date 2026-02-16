@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://68o2pdqlvvd1"]
+
+[ext_resource type="Script" uid="uid://c8qwmq4yrbmvq" path="res://scripts/needle.gd" id="1_gcph1"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gvag5"]
+a = Vector2(-1, -67)
+b = Vector2(0, 76)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gcph1"]
+
+[node name="Needle" type="StaticBody2D"]
+script = ExtResource("1_gcph1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 3)
+shape = SubResource("SegmentShape2D_gvag5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 3)
+scale = Vector2(-1.5, 152.5)
+texture = SubResource("PlaceholderTexture2D_gcph1")

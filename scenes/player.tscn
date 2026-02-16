@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://cxa56j8itmd1c"]
+[gd_scene load_steps=6 format=3 uid="uid://cxa56j8itmd1c"]
 
 [ext_resource type="Texture2D" uid="uid://d3micxqt7oka" path="res://assets/Gimbo-TestGoblin.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dvburo124yl5x" path="res://scripts/playerMovement.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://egdu0xxmpmi8" path="res://scenes/grapple_point.tscn" id="3_qhqgy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
 animations = [{
@@ -42,3 +43,7 @@ collide_with_areas = true
 [node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=1916500482]
 position = Vector2(0, -15.5)
 shape = SubResource("RectangleShape2D_g2els")
+shape = SubResource("CircleShape2D_dqkch")
+
+[node name="GrapplePoint" parent="." instance=ExtResource("3_qhqgy")]
+position = Vector2(0, -13)

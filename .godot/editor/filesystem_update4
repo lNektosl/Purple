@@ -1,2 +1,10 @@
 res://default_env.tres
+res://scenes/player.tscn
+res://scripts/graple_point.gd
 res://scenes/game.tscn
+res://scripts/label.gd
+res://scripts/playerMovement.gd
+res://scripts/reset.gd
+res://scenes/grapple_point.tscn
+res://scenes/needle.tscn
+res://scripts/needle.gd
