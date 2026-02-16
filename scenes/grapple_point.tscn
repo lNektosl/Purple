@@ -1,16 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://egdu0xxmpmi8"]
+[gd_scene format=3 uid="uid://egdu0xxmpmi8"]
 
 [ext_resource type="Script" uid="uid://07aasc5f287w" path="res://scripts/graple_point.gd" id="1_o5pw1"]
 [ext_resource type="PackedScene" uid="uid://68o2pdqlvvd1" path="res://scenes/needle.tscn" id="2_j8pxw"]
 
-[node name="GrapplePoint" type="Node2D"]
+[node name="GrapplePoint" type="Node2D" unique_id=1073924547]
 
-[node name="RotatePoint" type="Node2D" parent="."]
+[node name="RotatePoint" type="Node2D" parent="." unique_id=921180231]
 position = Vector2(1, 1)
 script = ExtResource("1_o5pw1")
 
-[node name="Quiver" type="Node2D" parent="RotatePoint"]
+[node name="Quiver" type="Node2D" parent="RotatePoint" unique_id=1458895527]
 position = Vector2(-22, 1)
 
-[node name="Needle" parent="RotatePoint/Quiver" instance=ExtResource("2_j8pxw")]
+[node name="Needle" parent="RotatePoint/Quiver" unique_id=968938177 instance=ExtResource("2_j8pxw")]
 scale = Vector2(0.3, 0.3)
+collision_layer = 4

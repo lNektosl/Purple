@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
-const MAX_SPEED = 300.0
+const MAX_SPEED = 200.0
 const JUMP_VELOCITY = -400.0
-const ACCELERATION = 1000.0
-const FRICTION = 800.0
+const ACCELERATION = 700.0
+const FRICTION = 500.0
 var coyote_timer = 0
+
+@onready var player: CharacterBody2D = $"."
+@onready var STARTING_POSITION: Vector2 = player.position
 
 func _physics_process(delta: float) -> void:
 	var on_ground = $FloorRayCast.is_colliding()
@@ -21,24 +24,24 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and (on_ground or (coyote_timer > 0 and velocity.y >= 0)):
 		velocity.y = JUMP_VELOCITY
 	if on_ground:
-		coyote_timer = 1
+		coyote_timer = 0.125
 	else:
-		coyote_timer -= 10 * delta 
-		
+		coyote_timer -= delta
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	var air_reduction = 1 if on_ground else 0.75 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		if(abs(velocity.x) < MAX_SPEED):
-			velocity.x += direction * ACCELERATION * delta
+			velocity.x += direction * ACCELERATION * air_reduction * delta
 		else:
 			velocity.x = direction * MAX_SPEED
 	else:
 		if(velocity.x > 0):
-			velocity.x -= FRICTION * delta
+			velocity.x -= FRICTION * air_reduction * delta
 		elif(velocity.x < 0):
-			velocity.x += FRICTION * delta
+			velocity.x += FRICTION * air_reduction * delta
 		if(abs(velocity.x) < 30):
 			velocity.x = 0
 
