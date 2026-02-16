@@ -8,13 +8,20 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Purple"
-run/main_scene="uid://cy540ojoah62g"
-config/features=PackedStringArray("4.5")
+run/main_scene="uid://b2fj6w7um1pf1"
+config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 
+[dotnet]
+
+project/assembly_name="Purple"
 [input]
 
 ui_left={
