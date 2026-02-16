@@ -6,6 +6,9 @@ const ACCELERATION = 1000.0
 const FRICTION = 800.0
 var coyote_timer = 0
 
+@onready var player: CharacterBody2D = $"."
+@onready var STARTING_POSITION: Vector2 = player.position
+
 func _physics_process(delta: float) -> void:
 	var on_ground = $FloorRayCast.is_colliding()
 	# Add the gravity.
