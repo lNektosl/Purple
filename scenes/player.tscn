@@ -43,7 +43,6 @@ collide_with_areas = true
 [node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=1916500482]
 position = Vector2(0, -15.5)
 shape = SubResource("RectangleShape2D_g2els")
-shape = SubResource("CircleShape2D_dqkch")
 
 [node name="GrapplePoint" parent="." instance=ExtResource("3_qhqgy")]
 position = Vector2(0, -13)
